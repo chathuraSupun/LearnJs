@@ -28,18 +28,15 @@ async function asyncFunctionTimeout() {
 }
 
 async function asyncFunctionInCondition() {
-  /* 
-    first condition will going to wait for the value returned from async function
-   */
+  // first condition will going to wait for the value returned from async function
+
   if ((value = await asyncFunctionPromiseReturn())) {
     console.log("waiting for asyncFunctionPromiseReturn response:", value);
   } else {
     console.log("not waiting for asyncFunctionPromiseReturn response");
   }
 
-  /* 
-    second condition will going to wait for the value returned from async function
-   */
+  // second condition will going to wait for the value returned from async function
   if ((value = await asyncFunctionTimeout())) {
     console.log("waiting for asyncFunctionTimeout response:", value);
   } else {
