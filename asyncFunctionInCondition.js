@@ -1,22 +1,50 @@
-async function asyncFunction() {
-  var returnVal;
-  setTimeout(() => {
-    returnVal = "now excuting";
-  }, 500);
+function asyncFunctionPromiseReturn() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("inside time out");
+      resolve("resolved");
+    }, 500);
+  });
+}
 
-  return returnVal;
+async function asyncFunctionTimeout() {
+  var promise1 = await new Promise((res) => {
+    setTimeout(() => res(true), 500);
+  });
+
+  var promise2 =
+    promise1 &&
+    (await new Promise((res) => {
+      setTimeout(() => res("success"), 1000);
+    }));
+
+  var promise3 =
+    promise2 &&
+    (await new Promise((res) => {
+      setTimeout(() => res("success"), 1500);
+    }));
+
+  return promise3;
 }
 
 async function asyncFunctionInCondition() {
   /* 
-    below await not going to wait for response
-    so it will jump to else
+    first condition will going to wait for the value returned from async function
    */
-  if ((value =  asyncFunction())) {
-    console.log("waiting for response", value);
+  if ((value = await asyncFunctionPromiseReturn())) {
+    console.log("waiting for asyncFunctionPromiseReturn response:", value);
   } else {
-    console.log("not waiting for response");
+    console.log("not waiting for asyncFunctionPromiseReturn response");
+  }
+
+  /* 
+    second condition will going to wait for the value returned from async function
+   */
+  if ((value = await asyncFunctionTimeout())) {
+    console.log("waiting for asyncFunctionTimeout response:", value);
+  } else {
+    console.log("not waiting for asyncFunctionTimeout response");
   }
 }
 
-asyncFunctionInCondition()
+asyncFunctionInCondition();
