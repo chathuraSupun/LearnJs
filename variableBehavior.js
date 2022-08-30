@@ -12,17 +12,10 @@ var myName = 'supun'; // declarations are globally scoped or function/locally sc
 const pi = 3.14; // declarations are globally scoped or function/locally scoped. cannot redeclare. cannot change
 let lastName = 'chathura'; // let is block scoped. A block is a chunk of code bounded by {}. cannot redeclare in same scope. can be changed
 
+// declare multiple variables in one statement
+let person = "john", carName = "volvo", price = 2000;
 
 var a; // a = undefined 
-
-// mathamatical operators
-var a = 0;
-a += 1 // a = a + 1
-a -= 1 // a = a - 1
-a *= 2 // a = a * 2
-a /= 12  // a = a / 12
-
-var remainder = 11 % 3;
 
 // string literal
 var myFirstName = `supun`;
@@ -47,15 +40,3 @@ var myStr = `I am a 'single quoted' and "double quoted" string inside baptics`; 
 \f form feed
 */
 
-// concatinating strings
-var myStr = "First sentence. " + "second sentence";
-var myStr = "First sentence. ";
-myStr += "second sentence"; // result: First sentence. second sentence
-
-// create string using variables
-var myName = 'supun';
-var myStr = 'Hello my name is ' + myName + ', howe are you?'; // result: Hello my name is supun, howe are you?
-
-var adjective = "usefull";
-var myStr = 'Learning new things is ';
-myStr += adjective; // result: 'Learning new things is usefull'

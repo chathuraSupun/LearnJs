@@ -13,4 +13,16 @@ function checkAssignmentInsideCondition() {
   }
 }
 
-checkAssignmentInsideCondition();
+// checkAssignmentInsideCondition();
+
+const image = {
+  url: '',
+}
+
+function isundefinedequalstoemptystring(){
+console.log('isundefinedequalstoemptystring ', image.name && image.name !== '')
+// console.log('isundefinedequalstoemptystring ', image?.name !== '') // dont use this, this will give true coz undefined !== ''
+
+}
+
+isundefinedequalstoemptystring();
